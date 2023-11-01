@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特殊图形</title>
+  <style>
+    body{
+      height: 3000px;
+    }
+    .box1 {
+      display: inline-block;
+      /* 长宽相同为圆形，不同为椭圆 */
+      height: 150px;
+      width: 200px;
+      background: #999;
+      /* 圆形或椭圆 */
+      border-radius: 50%;
+      /* 二分之一椭圆 */
+      /* border-radius: 0 100% 100% 0 / 50%; */
+      /* 四分之一椭圆 */
+      /* border-radius: 100% 0 0 0; */
+    }
+
+    .box2 {
+      width: 0;
+      height: 0;
+      border-top: 20px solid #000;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+    }
+    .box3{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: fixed;
+      top: 300px;
+    }
+    .box4 {
+      width: 200px;
+      height: 100px;
+      background: #FFD900;
+      border-radius: 100px / 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+  <div class="box4"></div>
+</body>
+
+</html>

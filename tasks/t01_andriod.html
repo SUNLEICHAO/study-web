@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安卓机器人跳跃动画</title>
+  <style>
+    /* 幕布 */
+    .box {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 100px auto;
+      background-color: #bfc;
+      margin: 100px auto;
+    }
+
+    .box .body {
+      /* 其他身体部位相对于此来定位 */
+      position: absolute;
+      bottom: 75px;
+      left: 180px;
+
+      width: 145px;
+      height: 128px;
+      border-radius: 0 0 8px 8px;
+      background-color: #abc828;
+      -webkit-animation: jump-t 2s infinite,widthChange-t1  2s infinite;;
+      /* -webkit-animation:  */
+    }
+
+    /* 所有身体部位同意设定 */
+    .box .body>div.c1  {
+      /* position: absolute; */
+      background-color: #abc828;
+    }
+    .box .body>div.c2  {
+      background-color: #fff;
+    }
+    .box .body>div.c3  {
+      background-color: #abc828;
+    }
+
+    /* 左胳膊 */
+    .body .body-1 {
+      position: absolute;
+      top: 8px;
+      left: -32px;
+
+      width: 30px;
+      height: 95px;
+      border-radius: 15px;
+      /* 胳膊旋转和上升 */
+      -webkit-animation: jump-t1 2s infinite;
+
+    }
+
+    /* 右胳膊 */
+    .body .body-2 {
+      position: absolute;
+      top: 8px;
+      left: 147px;
+
+      width: 30px;
+      height: 95px;
+      border-radius: 15px;
+      -webkit-animation: jump-t2 2s infinite;
+
+    }
+
+    /* 左腿 */
+    .body-3 {
+      position: absolute;
+      bottom: -54px;
+      left: 30px;
+
+      width: 30px;
+      height: 50px;
+      border-radius: 15px;
+      -webkit-animation: jump-t3 2s infinite;
+    }
+
+    /* 右腿 */
+    .body-4 {
+      position: absolute;
+      bottom: -54px;
+      right: 30px;
+
+      width: 30px;
+      height: 50px;
+      border-radius: 15px;
+      -webkit-animation: jump-t4 2s infinite;
+
+    }
+    /* 头部 */
+    .body-5 {
+      position: absolute;
+      top: -60px;
+
+      width: 145px;
+      height: 56px;
+      border-radius: 50% / 100% 100% 0 0;
+      -webkit-animation: jump-t 2s infinite,widthChange-t2  2s infinite;;
+    }
+    /* 左眼 */
+    .body-6 {
+      position: absolute;
+      left: 35px;
+      top: -39px;
+
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+    /* 右眼 */
+    .body-7 {
+      position: absolute;
+      right: 35px;
+      top: -39px;
+
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+    /* 左天线 */
+    .body-8 {
+      position: absolute;
+      left: 40px;
+      top: -79px;
+
+      width: 4px;
+      height: 25px;
+      border-radius: 2px;
+      transform: rotate(-20deg);
+      background-color: #abc828;
+    }    
+    /* 右天线 */
+    .body-9 {
+      position: absolute;
+      right: 40px;
+      top: -79px;
+
+      width: 4px;
+      height: 25px;
+      border-radius: 2px;
+      transform: rotate(20deg);
+      background-color: #abc828;
+    }
+
+    .box .body .c2,
+    .box .body .c3{
+      -webkit-animation: colorChang 2s infinite;
+    }
+
+    /*  影子 */
+    .shadow {
+      width: 150px;
+      height: 60px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: -40px;
+      background: rgba(20, 20, 20, .1);
+      box-shadow: 0 0 25px 20px rgba(20, 20, 20, .1);
+      transform: scaleY(.3);
+      -webkit-animation: shrink 2s infinite;
+    }
+
+
+    @-webkit-keyframes jump-t {
+      0% {
+        bottom: 75px;
+        /* -webkit-animation-timing-function: ease-in; */
+      }
+      60% {
+        /* 跳跃高度，48 */
+        bottom:155px;
+      }
+      100% {
+        bottom: 75px;
+      }
+    }
+    @-webkit-keyframes jump-t1 {
+      0% {
+        transform: rotate(0deg);
+      }
+      60% {
+        /* top:-40px; */
+        transform: rotate(40deg);
+      }
+      100% {
+        /* top: 8px; */
+      }
+    }
+    @-webkit-keyframes jump-t2 {
+      0% {
+        /* top:8px; */
+        transform: rotate(0deg);
+      }
+      60% {
+        /* top:-40px; */
+        transform: rotate(-40deg);
+      }
+      100% {
+        /* top: 8px; */
+      }
+    }
+
+    @-webkit-keyframes jump-t3 {
+      0% {
+        /* bottom:-54px; */
+        transform: rotate(0deg);
+      }
+      60% {
+        /* bottom:-6px; */
+        transform: rotate(40deg);
+      }
+      100% {
+        /* bottom:-54px; */
+      }
+    }
+
+    @-webkit-keyframes jump-t4 {
+      0% {
+        /* bottom:-54px; */
+        transform: rotate(0deg);
+      }
+      60% {
+        /* bottom:-6px; */
+        transform: rotate(-40deg);
+      }
+      100% {
+        /* bottom:-54px; */
+      }
+    }
+
+
+    @-webkit-keyframes shrink {
+      0% {
+        width: 90px;
+        height: 60px;
+        -webkit-animation-timing-function: ease-in;
+      }
+
+      65% {
+        width: 10px;
+        height: 5px;
+        margin-left: -5px;
+        background: rgba(20, 20, 20, .3);
+        box-shadow: 0 0 25px 20px rgba(20, 20, 20, .3);
+      }
+
+      100% {
+        width: 90px;
+        height: 60px;
+        background: rgba(20, 20, 20, .1);
+        box-shadow: 0 0 25px 20px rgba(20, 20, 20, .1);
+      }
+    }
+    @-webkit-keyframes colorChang {
+      0%{
+        background-color: #fff;
+      }
+      30%{
+        background-color: #000;
+      }
+      50%{
+        background-color: #f00;
+      }
+      80%{
+        background-color: #000;
+      }
+      100% {
+        background-color: #fff;
+      }
+    }
+    @-webkit-keyframes widthChange-t1 {
+      0%{
+        width: 145px;
+        left: 180px;
+      }
+      65%{
+        /* 变宽8px */
+        width: 153px;
+        left: 176px;
+      }
+      100%{
+        width: 145px;
+        left: 180px;
+      }
+    }
+    @-webkit-keyframes widthChange-t2 {
+      0%{
+        width: 145px;
+      }
+      65%{
+        width: 153px;
+      }
+      100%{
+        width: 145px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <!-- 上半身 -->
+    <div class="body">
+      <!-- 左胳膊 -->
+      <div class="body-1 c1"></div>
+      <!-- 右胳膊 -->
+      <div class="body-2 c1"></div>
+      <!-- 左腿 -->
+      <div class="body-3 c1"></div>
+      <!-- 右腿 -->
+      <div class="body-4 c1"></div>
+      <!-- 头 -->
+      <div class="body-5 c1"></div>
+      <!-- 左眼-->
+      <div class="body-6 c2"></div>
+      <!-- 右眼 -->
+      <div class="body-7 c2"></div>
+      <!-- 左天线 -->
+      <div class="body-8 c3"></div>
+      <!-- 右天线 -->
+      <div class="body-9 c3"></div>
+    </div>
+    <div class="shadow"></div>
+  </div>
+</body>
+
+</html>

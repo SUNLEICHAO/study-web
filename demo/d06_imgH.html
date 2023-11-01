@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .logo-wrapper{
+      /*  解决方式1，设置父元素高度(一般不采取，可迁移性差) */
+      /* height: 100px; */
+
+      /* 解决方式3，fontsize 0（解决核心问题：空白字符占位） */
+      /* font-size: 0 */
+
+      /* 解决方式4，flex，一劳永逸 */
+      /* display: flex; */
+
+      background-color: #000;
+    }
+    .logo-wrapper img {
+      height: 100px;
+      /* height: 100%; */
+
+      /* 解决方式2，block */
+      /* display: block; */
+
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logo-wrapper"><img src="https://dlweb.sogoucdn.com/pcsearch/web/index/images/logo_880x280_06c7476.png?v=628ed034"></div>
+  <!-- <div class="logo-wrapper"><img src=""></div> -->
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Select</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f1f1f1;
+    }
+
+    .klass {
+      color: red;
+    }
+
+    #testID {
+      color: blue;
+    }
+
+    li span {
+      color: green;
+    }
+
+    li>span {
+      color: orange;
+    }
+
+    #testID+li {
+      background: #ccc;
+    }
+
+    #testID~li {
+      background: yellowgreen;
+    }
+
+    #testID,
+    .klass {
+      background: #ccc;
+    }
+
+    li[data] {
+      background: red;
+    }
+
+    #testID::after {
+      content: 'A-a-a-a-'
+    }
+
+    #testID::first-letter {
+      color:#666;
+    }
+
+    #testID::first-line {
+      background: #f1f1f1;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li data="attr-data">1</li>
+    <li class="klass">2</li>
+    <li class="klass">3</li>
+    <li id="testID">4</li>
+    <li><span>5</span></li>
+    <li><span>6</span></li>
+    <li><a href="https://www.baidu.com">百度</a></li>
+  </ul>
+</body>
+
+</html>
