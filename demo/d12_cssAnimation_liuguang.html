@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes tran{
+      0%{
+        top:-100px;
+        height: 100px;
+      }
+      100%{
+        top: 290px;
+        height: 10px;
+      }
+    }
+
+    @keyframes tran2{
+      0%{
+        top: -10px;
+      }
+      100%{
+        top: 400px;
+      }
+    }
+    .box{
+      position: relative;
+      width: 500px;
+      height: 300px;
+      background-color: aquamarine;
+      margin-left: 200px;
+      margin-top: 200px;
+      /* overflow: hidden; */
+    }
+    .line{
+      display: inline-block;
+      width: 20px;
+      height: 100px;
+      background-color: #333;
+      margin-right: 20px;
+      position: absolute;
+      left: 10px;
+    }
+    .line.l1{
+      display: none;
+      top: 10px;
+      background-color: aquamarine;
+      animation: tran2 2s infinite;
+      z-index: 10;
+    }
+    .line.l2{
+      height: 160px;
+      animation: tran2 2s infinite;
+    }
+    .line.l3{
+      height: 160px;
+      animation: tran2 2s infinite;
+      animation-delay: .5s;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="line l1"></div>
+    <div class="line l2"></div>
+    <div class="line l3"></div>
+  </div>
+</body>
+</html>

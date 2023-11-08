@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>tab demo</title>
+  <style>
+    .click-tab-item.active {
+      background-color: #35b558;
+    }
+
+    .click-content-item.active {
+      background-color: #35b558;
+    }
+
+    .hover-tab-item.active {
+      background-color: #fff1cd;
+    }
+
+    .hover-content-item.active {
+      background-color: #fff1cd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo-wrapper">
+    <div class="checkout-section">
+      <div class="click-tab" id="click-tab">
+        <div class="click-tab-item active" data-index="0">click tab A</div>
+        <div class="click-tab-item" data-index="1">click tab B</div>
+        <div class="click-tab-item" data-index="2">click tab C</div>
+      </div>
+      <div class="click-content" id="click-content">
+        <div class="click-content-item active">click content A</div>
+        <div class="click-content-item">click content B</div>
+        <div class="click-content-item">click content C</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="click-section">
+    <div class="hover-tab" id="hover-tab">
+      <div class="hover-tab-item active" data-index="0">hover tab A</div>
+      <div class="hover-tab-item" data-index="1">hover tab B</div>
+      <div class="hover-tab-item" data-index="2">hover tab C</div>
+    </div>
+    <div class="hover-content" id="hover-content">
+      <div class="hover-content-item active">hover content A</div>
+      <div class="hover-content-item">hover content B</div>
+      <div class="hover-content-item">hover content C</div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    document.getElementById('click-tab').addEventListener('click', function (e) {
+      if (event.target.className.indexOf('click-tab-item') >= 0) {
+        let index = e.target.dataset.index;
+        document.querySelectorAll('.click-tab-item').forEach(e => e.setAttribute('class', 'click-tab-item'));
+        document.querySelectorAll('.click-content-item').forEach(e => e.setAttribute('class', 'click-content-item'));
+        document.querySelectorAll('.click-tab-item')[index].setAttribute('class', 'click-tab-item active');
+        document.querySelectorAll('.click-content-item')[index].setAttribute('class', 'click-content-item active');
+      }
+    });
+
+    document.getElementById('hover-tab').addEventListener('mouseover', function (e) {
+      if (event.target.className.indexOf('hover-tab-item') >= 0) {
+        let index = e.target.dataset.index;
+        document.querySelectorAll('.hover-tab-item').forEach(e => e.setAttribute('class', 'hover-tab-item'));
+        document.querySelectorAll('.hover-content-item').forEach(e => e.setAttribute('class', 'hover-content-item'));
+        document.querySelectorAll('.hover-tab-item')[index].setAttribute('class', 'hover-tab-item active');
+        document.querySelectorAll('.hover-content-item')[index].setAttribute('class', 'hover-content-item active');
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -21,24 +21,26 @@
       position: absolute;
       bottom: 75px;
       left: 180px;
+      z-index: 10;
 
       width: 145px;
       height: 128px;
       border-radius: 0 0 8px 8px;
       background-color: #abc828;
-      -webkit-animation: jump-t 2s infinite,widthChange-t1  2s infinite;;
-      /* -webkit-animation:  */
+      -webkit-animation: jump-t 2s infinite, widthChange-t1 2s infinite;
+      ;
     }
 
-    /* 所有身体部位同意设定 */
-    .box .body>div.c1  {
-      /* position: absolute; */
+    /* 各个身体部位的颜色 */
+    .box .body>div.c1 {
       background-color: #abc828;
     }
-    .box .body>div.c2  {
+
+    .box .body>div.c2 {
       background-color: #fff;
     }
-    .box .body>div.c3  {
+
+    .box .body>div.c3 {
       background-color: #abc828;
     }
 
@@ -53,7 +55,6 @@
       border-radius: 15px;
       /* 胳膊旋转和上升 */
       -webkit-animation: jump-t1 2s infinite;
-
     }
 
     /* 右胳膊 */
@@ -66,7 +67,6 @@
       height: 95px;
       border-radius: 15px;
       -webkit-animation: jump-t2 2s infinite;
-
     }
 
     /* 左腿 */
@@ -93,6 +93,7 @@
       -webkit-animation: jump-t4 2s infinite;
 
     }
+
     /* 头部 */
     .body-5 {
       position: absolute;
@@ -101,8 +102,10 @@
       width: 145px;
       height: 56px;
       border-radius: 50% / 100% 100% 0 0;
-      -webkit-animation: jump-t 2s infinite,widthChange-t2  2s infinite;;
+      -webkit-animation: jump-t 2s infinite, widthChange-t2 2s infinite;
+      ;
     }
+
     /* 左眼 */
     .body-6 {
       position: absolute;
@@ -113,6 +116,7 @@
       height: 15px;
       border-radius: 50%;
     }
+
     /* 右眼 */
     .body-7 {
       position: absolute;
@@ -123,6 +127,7 @@
       height: 15px;
       border-radius: 50%;
     }
+
     /* 左天线 */
     .body-8 {
       position: absolute;
@@ -134,7 +139,8 @@
       border-radius: 2px;
       transform: rotate(-20deg);
       background-color: #abc828;
-    }    
+    }
+
     /* 右天线 */
     .body-9 {
       position: absolute;
@@ -149,7 +155,7 @@
     }
 
     .box .body .c2,
-    .box .body .c3{
+    .box .body .c3 {
       -webkit-animation: colorChang 2s infinite;
     }
 
@@ -169,74 +175,66 @@
     }
 
 
+    /* 整个身体的高度 */
     @-webkit-keyframes jump-t {
       0% {
         bottom: 75px;
         /* -webkit-animation-timing-function: ease-in; */
       }
+
       60% {
-        /* 跳跃高度，48 */
-        bottom:155px;
+        /* 跳跃高度：48px */
+        bottom: 155px;
       }
+
       100% {
         bottom: 75px;
       }
     }
+
+    /* 胳膊变化 */
     @-webkit-keyframes jump-t1 {
       0% {
         transform: rotate(0deg);
       }
+
       60% {
-        /* top:-40px; */
         transform: rotate(40deg);
-      }
-      100% {
-        /* top: 8px; */
-      }
-    }
-    @-webkit-keyframes jump-t2 {
-      0% {
-        /* top:8px; */
-        transform: rotate(0deg);
-      }
-      60% {
-        /* top:-40px; */
-        transform: rotate(-40deg);
-      }
-      100% {
-        /* top: 8px; */
       }
     }
 
-    @-webkit-keyframes jump-t3 {
+    @-webkit-keyframes jump-t2 {
       0% {
-        /* bottom:-54px; */
         transform: rotate(0deg);
       }
+
       60% {
-        /* bottom:-6px; */
-        transform: rotate(40deg);
+        transform: rotate(-40deg);
       }
-      100% {
-        /* bottom:-54px; */
+    }
+
+    /* 腿部变化 */
+    @-webkit-keyframes jump-t3 {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      60% {
+        transform: rotate(40deg);
       }
     }
 
     @-webkit-keyframes jump-t4 {
       0% {
-        /* bottom:-54px; */
         transform: rotate(0deg);
       }
+
       60% {
-        /* bottom:-6px; */
         transform: rotate(-40deg);
-      }
-      100% {
-        /* bottom:-54px; */
       }
     }
 
-
+    /* 影子的变化 */
     @-webkit-keyframes shrink {
       0% {
         width: 90px;
@@ -259,46 +257,60 @@
         box-shadow: 0 0 25px 20px rgba(20, 20, 20, .1);
       }
     }
+
+    /* 眼睛和天线的颜色变化 */
     @-webkit-keyframes colorChang {
-      0%{
+      0% {
         background-color: #fff;
       }
-      30%{
+
+      30% {
         background-color: #000;
       }
-      50%{
+
+      50% {
         background-color: #f00;
       }
-      80%{
+
+      80% {
         background-color: #000;
       }
+
       100% {
         background-color: #fff;
       }
     }
+
+    /* 体宽变化 */
     @-webkit-keyframes widthChange-t1 {
-      0%{
+      0% {
         width: 145px;
         left: 180px;
       }
-      65%{
+
+      65% {
         /* 变宽8px */
         width: 153px;
         left: 176px;
       }
-      100%{
+
+      100% {
         width: 145px;
         left: 180px;
       }
     }
+
+    /* 头部变化 */
     @-webkit-keyframes widthChange-t2 {
-      0%{
+      0% {
         width: 145px;
       }
-      65%{
+
+      65% {
         width: 153px;
       }
-      100%{
+
+      100% {
         width: 145px;
       }
     }
