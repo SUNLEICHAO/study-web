@@ -66,13 +66,13 @@
       // })
 
       // #3 map+reduce
-      res = datas.map(function (item, index) {
-        let sum = 0
-        let lessonNum = item.courses.map(function (item) {
-          return item.lessons.length
-        })
-        return { 'name': item.name, 'count': lessonNum.reduce(function (prev, cur) { return prev + cur }, 0) }
-      })
+      // res = datas.map(function (item, index) {
+      //   let sum = 0
+      //   let lessonNum = item.courses.map(function (item) {
+      //     return item.lessons.length
+      //   })
+      //   return { 'name': item.name, 'count': lessonNum.reduce(function (prev, cur) { return prev + cur }, 0) }
+      // })
 
       // #4 箭头函数
       res = datas.map(function (item, index) {
