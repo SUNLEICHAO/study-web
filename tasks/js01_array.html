@@ -65,9 +65,8 @@
       //   res.push({ 'name': item.name, 'count': sum })
       // })
 
-      // #3 map+reduce
+      // #3 map + reduce
       // res = datas.map(function (item, index) {
-      //   let sum = 0
       //   let lessonNum = item.courses.map(function (item) {
       //     return item.lessons.length
       //   })
@@ -75,15 +74,16 @@
       // })
 
       // #4 箭头函数
-      res = datas.map(function (item, index) {
-        let sum = 0
-        let lessonNum = item.courses.map(item => item.lessons.length)
-        return { 'name': item.name, 'count': lessonNum.reduce((prev, cur) => prev + cur, 0) }
-      })
+      res = datas.map(item => (
+        {
+          'name': item.name,
+          'count': item.courses.map(item => item.lessons.length).reduce((prev, cur) => prev + cur, 0)
+        }
+      ))
 
       return res
-    }
 
+    }
 
     const result = getLessonCount(series);
 
