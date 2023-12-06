@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item {
+      justify-content: space-between;
+      width: 180px;
+      display: flex;
+      color: #333;
+      font-size: 14px;
+      line-height: 19px;
+      background-color: tomato;
+    }
+
+    .item__info {
+      display: flex;
+    }
+
+    .item__info {
+      line-height: 20px;
+    }
+
+    .item__info .iconfont {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-color: #000;
+    }
+
+    /* 定位按钮 */
+    .btn-scroll {
+      position: fixed;
+      bottom: 10px;
+      display: inline-block;
+      padding: 0 10px;
+      font-size: 16px;
+      color: #FFF;
+      line-height: 30px;
+      background-color: #3d7eff;
+      border-radius: 5PX;
+    }
+
+    /* grid */
+    .box2 {
+      display: grid;
+      grid-auto-flow: column dense;
+      /* grid-template-columns: auto auto; */
+      /* width: 300px; */
+      /* height: 400px; */
+      font-size: 50px;
+      background-color: rgba(0, 255, 255, .3);
+    }
+
+    .box2>* {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    .box2>*:nth-child(2n) {
+      background-color: blueviolet;
+    }
+
+    .box2-3 {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="item">
+    <div class="item__title">双十一概念</div>
+    <div class="item__info">
+      <span class="iconfont"></span>
+      92
+    </div>
+    <a href="javascript:((x)=>window.scrollTo({top:x,behavior:'smooth'}))(3600)" class="btn-scroll">滑到目标点</a>
+  </div>
+
+  <div class="box2">
+    <div class="box2-1 show">1</div>
+    <div class="box2-2 show">2</div>
+    <div class="box2-3 show">3</div>
+    <div class="box2-3 show">3</div>
+    <div class="box2-3 show">3</div>
+    <div class="box2-3 show">3</div>
+    <div class="box2-3 show">3</div>
+  </div>
+  <script>
+    // ((x) => window.scrollTo({ top: x, behavior: 'smooth' }))(4700)
+
+  </script>
+
+</body>
+
+</html>

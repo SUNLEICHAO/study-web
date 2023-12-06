@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .demo-container {
+      display: flex;
+      background-color: #f0f0f0;
+    }
+
+    .demo-text {
+      width: 100px;
+      height: 200px;
+      background-color: pink;
+    }
+
+    .demo-text:last-child {
+      height: 150px;
+    }
+
+    .demo-list {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      background-color: lightgray;
+    }
+
+    .demo-item {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .demo-item__link {
+      width: 50px;
+      height: 40px;
+      background-color: lightcoral;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo-container">
+    <div class="demo-text"></div>
+    <ul class="demo-list">
+      <li class="demo-item">
+        <a href="javascript:;" class="demo-item__link">1</a>
+      </li>
+      <li class="demo-item">
+        <a href="javascript:;" class="demo-item__link">2</a>
+      </li>
+      <li class="demo-item">
+        <a href="javascript:;" class="demo-item__link">3</a>
+      </li>
+      <li class="demo-item">
+        <a href="javascript:;" class="demo-item__link">4</a>
+      </li>
+    </ul>
+    <div class="demo-text"></div>
+  </div>
+  <script>
+    //第一步把之前的数据写成一个数组的形式,定义变量为 infos
+    let students = [
+      ['小A', '女', 21, '大一'], ['小B', '男', 23, '大三'],
+      ['小C', '男', 24, '大四'], ['小D', '女', 21, '大一'],
+      ['小E', '女', 22, '大四'], ['小F', '男', 21, '大一'],
+      ['小G', '女', 22, '大二'], ['小H', '女', 20, '大三'],
+      ['小I', '女', 20, '大一'], ['小J', '男', 20, '大三'],
+    ];
+
+
+    //第一次筛选，找出都是大一的信息
+    for (var i = 0; i < students.length; i++) {
+      if (students[i][3] == '大一') {
+        document.write(students[i], '<br/>')
+      }
+    }
+
+    //第二次筛选，找出都是女生的信息
+
+    for (var i = 0; i < students.length; i++) {
+      if (students[i][1] == '女') {
+        document.write(students[i], '<br/>')
+      }
+    }
+
+  </script>
+</body>
+
+</html>

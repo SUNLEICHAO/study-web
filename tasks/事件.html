@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background: #f1f1f1;
+    }
+
+    #ball {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: green;
+      border-radius: 50%;
+      transform-origin: 200px 200px;
+      /* animation: circle 4s linear infinite; */
+    }
+
+    /* @keyframes circle {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="ball"></div>
+  </div>
+
+  <script>
+    function startCircle(el) {
+      let startTime = Date.now(); // 获取启动时间
+      let cycle = 4000; // 多少秒转一周
+      requestAnimationFrame(function update() {
+        let currentTime = Date.now(); // 获取当前时间
+        let p = (currentTime - startTime) / cycle; // 计算转动多少周
+        el.style.transform = `rotate(${360 * p}deg)` // 转化为角度
+        requestAnimationFrame(update) // 下一次渲染继续执行
+      })
+    }
+    var ball = document.getElementById('ball');
+    startCircle(ball);
+  </script>
+</body>
+
+</html>

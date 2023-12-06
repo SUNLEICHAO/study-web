@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // const firstName  = 'leichao'
+    // const lastName  = 'Sun'
+    // 记笔记！
+    // const name  = `my name is ${firstName} ${lastName}`
+    // console.log(name);
+
+    let sum = 0;
+    let num = 1;
+    while (num < 1000) {
+      sum += num
+      num += 2
+    }
+    console.log(sum);
+
+    // 制造一个闭包
+    let funAdd = function () {
+      let a = 0
+      return function (b) {
+        a = a + b
+        return a
+      }
+    }
+
+    let fun1 = funAdd()
+    console.log(fun1(3));
+    console.log(fun1(81));
+    console.log(fun1(5));
+
+    console.log('---');
+    let arr = [1, 12, 8, 2, 5, 9];
+    let arrReduce = arr.reduce(function (pre, cur, index, array) {
+      console.log(pre);
+      return pre + cur
+    }, 0); // 21
+    console.log('---');
+    console.log(arrReduce);
+  </script>
+</body>
+
+</html>
