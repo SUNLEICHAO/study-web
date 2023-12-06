@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 在 script 标签创建 getQueryParams 函数处理 url ，返回对象结构。
+    function getQueryParams(str) {
+      let res = {}
+      // 提取到目标字符串
+      let str1 = str.slice(str.indexOf("?") + 1)
+      // 切成多个字段
+      let str2 = str1.split('&')
+      // 将每个字段中沿“=”分两半，进行赋值
+      str2.forEach(item => {
+        let str2Arr = item.split("=");
+        res[str2Arr[0]] = str2Arr[1]
+      })
+      return res
+    }
+
+    const url = "https://www.aitschool.com?hmsr=baidu&timestamp=1675748358355";
+    const result = getQueryParams(url);
+
+    console.log(result);
+
+    // 预期 result 结果为
+    // {
+    //   hmsr: "baidu",
+    //   timestamp: "1675748358355"
+    // }
+  </script>
+</body>
+
+</html>

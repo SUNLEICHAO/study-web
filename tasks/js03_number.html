@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function lotteryDraw(rangStart, rangEnd, num) {
+      let res = []
+      if (rangStart > rangEnd) {
+        let tran = rangStart
+        rangStart = rangEnd
+        rangEnd = tran
+      }
+      // rangStart = rangStart > rangEnd ? rangEnd
+
+      // 容错,避免死循环
+      num = num >= rangEnd - rangStart + 1 ? rangEnd - rangStart + 1 : num;
+
+      for (let i = 0; i < num; i++) {
+        let tran = Math.floor(Math.random() * (rangEnd - rangStart + 1)) + rangStart
+
+        // #1 if-else
+        // if (res.indexOf(tran) === -1) {
+        //   res.push(tran)
+        // } else {
+        //   i--
+        // }
+
+        // #2 改进
+        if (res.indexOf(tran) !== -1) {
+          i--
+          continue
+        }
+        res.push(tran)
+      }
+      return res
+    }
+
+    const result = lotteryDraw(20, 2, 10);
+    // 预期 result 结果为 [ 2、4、9、12、7 ] 2~20 的其中5个随机数
+    console.log(result);
+  </script>
+</body>
+
+</html>
