@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./city.js"></script>
+  <script>
+    const cityDatas = resDatas.data;
+    console.log(cityDatas);
+    /*
+    * 1. getCityById ，通过 id 获取城市数据中改 id 对应的信息。例如我们可以通过 440104 ，知道是荔湾区。
+    */
+
+    // 1. 通过 id 获取城市数据中改 id 对应的信息
+    function getCityById(serial) {
+      let res = {};
+      let dfs = function (node) {
+        for (let i = 0; i < node.length; i++) {
+          if (node[i].value === serial) {
+            // 不要这样！！！（会改变原数据）
+            // res = node[i]
+            // delete res.children
+            res.value = node[i].value;
+            res.label = node[i].label;
+          }
+          if (node[i].children) {
+            dfs(node[i].children)
+          }
+        }
+      }
+      dfs(cityDatas)
+      return res
+    }
+    const result1 = getCityById(440103);
+    console.log(result1);
+    // {value: 440104, label: "荔湾区"}
+    const result2 = getCityById(440100);
+    console.log(result2);
+    // {value: 440100, label: "广州市"}
+
+    // 2. 通过 id  id 获取城市数据中改 id 对应的信息以及父级信息
+    function getCityWithParentById(serial) {
+      // 递归循环方法
+      let newArrs = [];
+      let fn = function (list, value, prevValue) {
+        for (let i = 0; i < list.length; i++) {
+          if (list[i].value === value) {
+            // 推入满足条件的
+            newArrs.push({ value: list[i].value, label: list[i].label });
+            // 如果有父节点，查询父节点
+            if (prevValue) {
+              fn(cityDatas, prevValue);
+            }
+            return;
+          } else {
+            // 如果有子节点，继续下探
+            if (list[i].children) {
+              fn(list[i].children, value, list[i].value);
+            }
+          }
+        }
+      };
+      fn(cityDatas, serial)
+
+      return newArrs.reverse()
+    }
+
+    const result3 = getCityWithParentById(440104);
+    console.log(result3);
+    // [{value: 440000, label: "广东省"},{value: 440100, label: "广州市"}，{value: 440104, label: "荔湾区"}]
+
+  </script>
+</body>
+
+</html>

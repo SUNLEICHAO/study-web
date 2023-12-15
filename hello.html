@@ -8,36 +8,69 @@
 </head>
 
 <body>
-  <header>Header
-    <h1></h1>
-    <strong>关键字</strong>了解一下
-    <nav>
-      <a href='#'>Some Nav Link</a>
-      <a href='#'>Some Other Nav Link</a>
-      <a href='#'>A Third Nav Link</a>
-      <a href="https://www.baidu.com" target="_blank">打开百度网页</a>
-      <p>这是第一个段落。</p>
-      <p>这是第二个段落。</p>
-      <dl>
-        <dt>一个列表</dt>
-        <dd>我是这个列表的主体内容1</dd>
-        <dd>我是这个列表的主体内容2</dd>
-        <dd>我是这个列表的主体内容3</dd>
-      </dl>
+  <script>
+    // 源数据
+    let arrs = [
+      {
+        id: "1",
+        name: "a",
+        list: [
+          {
+            id: "2",
+            name: "b",
+            list: [
+              {
+                id: "3",
+                name: "e"
+              },
+              {
+                id: "6",
+                name: "f"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "4",
+        name: "c",
+        list: [
+          {
+            id: "5",
+            name: "d"
+          }
+        ]
+      }
+    ];
 
-      <div>
-        Mozilla Foundation<br>1981 Landings Drive<br>Building K<br>Mountain View, CA 94043-0801<br>USA
-      </div>
-      <a href="">
-        <input type="text">输入框
-      </a>
-    </nav>
-  </header>
-  <div>这里是内容书写</div>
-  <footer>Footer</footer>
-  <img src="./logo-taomi.png" alt=""/>
-  
-  <img src="https://www.baidu.com/img/bd_logo1.png1" alt="Baidu">
+    // 接收新数据
+    let newArrs = [];
+
+    // 递归循环方法
+    let fn = function (list, id, prevId) {
+      for (let i = 0; i < list.length; i++) {
+        let item = list[i];
+        if (item.id === id) {
+          // 推入满足条件的
+          newArrs.push({ id: item.id, name: item.name });
+          if (prevId) {
+            fn(arrs, prevId);
+          }
+          return;
+        } else {
+          if (item.list) {
+            fn(item.list, id, item.id);
+          }
+        }
+      }
+    };
+
+    // 执行
+    fn(arrs, '6');
+
+    // 打印结果
+    console.log(newArrs.reverse());
+  </script>
 </body>
 
 </html>
