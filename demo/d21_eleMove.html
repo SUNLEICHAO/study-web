@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes move {
+      from {
+        left: 0px;
+      }
+
+      to {
+        left: 400px;
+      }
+    }
+
+    .box1 {
+      width: 400px;
+      height: 200px;
+      background: -webkit-linear-gradient(left, #f2f2f2 99px, #000 100px) repeat;
+      background-size: 100px 200px;
+      /* overflow: hidden; */
+    }
+
+    .box1-1 {
+      position: relative;
+      left: 0px;
+      width: 40px;
+      height: 40px;
+      background-color: blueviolet;
+      /* transition: left 1s ease; */
+      animation: move 0.5s cubic-bezier(1, .26, .66, .64);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    <div class="box1-1"></div>
+  </div>
+  <button id="btn">移动</button>
+  <i>（元素每次移动100px，当元素的左边框出界时，复原到最左侧（left：0））</i>
+  <script>
+    let btn = document.getElementById('btn')
+    let box11 = document.getElementsByClassName('box1-1')[0]
+
+    btn.addEventListener('click', () => {
+      box11.style.left = parseInt(box11.style.left || 0) + 100 + 'px'
+      if (parseInt(box11.style.left) >= 100) {
+        // box11.style.cssText += 'left:0;'
+        // box11.style.cssText += 'transform: translateX(50px)'
+      }
+      // box11.style.cssText += 'transition-duration: .5s'
+    })
+
+    let leftReset = function () {
+
+    }
+  </script>
+</body>
+
+</html>

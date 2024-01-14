@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #ball {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      background-color: #ccc;
+      border-radius: 50%;
+    }
+
+    #ball::before {
+      content: '';
+      position: absolute;
+      display: block;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 50px;
+      width: 2px;
+      background-color: #000;
+    }
+
+    #ball::after {
+      content: '';
+      position: relative;
+      display: block;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 2px;
+      width: 50px;
+      background-color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ball"></div>
+  <script>
+    function startCircle(el) {
+      let startTime = Date.now(); // 获取启动时间
+      let cycle = 4000; // 多少秒转一周
+      requestAnimationFrame(function update() {
+        let currentTime = Date.now(); // 获取当前时间
+        let p = (currentTime - startTime) / cycle; // 计算转动多少周
+        el.style.transform = `rotate(${360 * p}deg)` // 转化为角度
+        requestAnimationFrame(update) // 下一次渲染继续执行
+      })
+    }
+    var ball = document.getElementById('ball');
+    startCircle(ball);
+
+
+    function animateTo(begin, end, duration, changeCallback, finishCallback) {
+      // 动画开始的时间
+      let startTime = Date.now();
+      requestAnimationFrame(function update() {
+        // 当前执行的时间
+        let dataNow = Date.now();
+        // 当前所消耗的时间
+        let time = dataNow - startTime;
+        // 当前发生的位移
+        let value = PAGE.linear(time, begin, end, duration);
+        // 执行变化事件回调
+        typeof changeCallback === 'function' && changeCallback(value)
+        // 如果动画结束时间大于当前执行时间
+        if (startTime + duration > dataNow) {
+          // 在执行一次动画渲染
+          requestAnimationFrame(update)
+        } else {
+          // 执行结束回调
+          typeof finishCallback === 'function' && finishCallback(end)
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>
