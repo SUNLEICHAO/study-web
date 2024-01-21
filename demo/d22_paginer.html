@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .paginer {
+      display: flex;
+      gap: 10px;
+    }
+
+    .paginer>div {
+      width: 80px;
+      line-height: 40px;
+      text-align: center;
+      background-color: #eee;
+      cursor: pointer;
+    }
+
+    .paginer>div:hover {
+      background-color: #ccc;
+    }
+
+    .paginer>div.forbi {
+      background-color: #ccc;
+      cursor: auto
+    }
+  </style>
+</head>
+
+<body>
+  <div class="paginer-show"></div>
+  <div class="paginer">
+    <div class="paginer-prev forbi">上一页</div>
+    <div class="paginer-next">下一页</div>
+  </div>
+  <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    let pages = 5;
+    let current = 1;
+    $('.paginer-show').html(current)
+    let showChange = function () {
+      $('.paginer-prev').removeClass("forbi")
+      $('.paginer-next').removeClass("forbi")
+
+      if (current == 1) {
+        $('.paginer-prev').addClass("forbi")
+      } else if (current == 5) {
+        $('.paginer-next').addClass("forbi")
+      }
+      $('.paginer-show').html(current)
+
+    }
+    $('.paginer-prev').on('click', function () {
+      if (current <= 1) {
+        return
+      }
+      current -= 1
+      showChange()
+    })
+    $('.paginer-next').on('click', function () {
+      if (current >= pages) {
+        return
+      }
+      current += 1
+      showChange()
+    })
+  </script>
+</body>
+
+</html>

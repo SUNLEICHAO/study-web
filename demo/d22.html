@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style></style>
+</head>
+
+<body>
+  <!-- sdf -->
+  <div class="box1">
+    <div class="box1-1" style="font-size:20px; background-color: red;">
+      <div class="content">床前明月光</div>
+    </div>
+    <div class="box1-2">
+      <div class="content">疑是地上霜</div>
+    </div>
+  </div>
+</body>
+<script>
+  const input = "浅绯红 31YR 84/056";
+  const regex = /^[\u4e00-\u9fa5]+/;
+  const match = input.match(regex);
+
+  if (match) {
+    console.log(match[0]); // 输出: 浅绯红
+  } else {
+    console.log("没有匹配到中文开头的字符串。");
+  }
+
+</script>
+
+</html>
